@@ -1,5 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const Thought = require('./Thought');
 
 const UserSchema = new Schema(
     {
@@ -12,28 +13,37 @@ const UserSchema = new Schema(
         email: {
             type: String,
             unique: true,
-            required: 'Email address is required',
+            required: true,
             validate: [validateEmail, 'Please fill a valid email address'],
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
-        thoughts: [],
-        friends: [],
+        thoughts: [
+            {
+                type: Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: Types.ObjectId,
+                ref: 'User'
+            }
+        ],
     },
     {
         toJSON: {
-            virtuals: true,
-            getters: true,
+            virtuals: true
         },
         id: false
     }
 );
 
-// get total count of comments and replies on retrieval
-PizzaSchema.virtual('commentCount').get(function () {
-    return this.comments.reduce((total, comment) => total + comment.replies.length + 1, 0);
+// get total count of friends on retrieval
+UserSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
 });
 
-//   create the pizza model using the PizzaSchema
+//   create the user model using the UserSchema
 const User = model('User', UserSchema);
 
 // export the pizza model

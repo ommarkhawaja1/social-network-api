@@ -29,6 +29,9 @@ This repository contains an API for a Social Network Web Application. Below are 
 * ../api/thoughts/:thoughtId --> GET a single thought, UPDATE a thought
 * ../api/thoughts/:thoughtId/reactions --> POST/add a reaction
 *  ../api/thoughts/:thoughtId/reactions/:reactionId --> DELETE a reaction
+
+[social_network_demo.webm](https://user-images.githubusercontent.com/79770445/185827067-bba865b8-917b-4b23-bb15-3a4e5b55d190.webm)
+
   ## Test
 Utilize Insomnia or Postman to test api routes locally. 
 

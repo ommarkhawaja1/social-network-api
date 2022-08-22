@@ -20,15 +20,15 @@
   ## Usage
 This repository contains an API for a Social Network Web Application. Below are the options for api calls
 
-* ../api/ -->GET all users & POST add user
-* ../api/users/:userId -->GEt user by id, PUT/edit user data, DELETE/remove user
+* ../api/ --> GET all users & POST new user
+* ../api/users/:userId --> Get user by id, PUT/edit user data, DELETE/remove user
 * ../api/:userId/friends/:friendId --> PUT/add friend, DELTE/remove friend
 * ../api/thoughts/ --> GET all thoughts
-* ../api/thoughts/:userId -->POST/add a thought
+* ../api/thoughts/:userId --> POST/add a thought
 * ../api/thoughts/:userId/:thoughtId --> DELTE a thought
 * ../api/thoughts/:thoughtId --> GET a single thought, UPDATE a thought
 * ../api/thoughts/:thoughtId/reactions --> POST/add a reaction
-*  ../api/thoughts/:thoughtId/reactions/:reactioId --> DELETE a reaction
+*  ../api/thoughts/:thoughtId/reactions/:reactionId --> DELETE a reaction
   ## Test
 Utilize Insomnia or Postman to test api routes locally. 
 

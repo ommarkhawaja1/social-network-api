@@ -35,24 +35,27 @@ const ThoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
-      characterLimit: [1, 280],
+      trim: true,
+      minLength: 1,
+      maxLength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
+      get: (createdAtVal) => dateFormat(createdAtVal),
     },
-    username: {
+    userName: {
       type: String,
-      required: true
+      required: true,
     },
     reactions: [ReactionSchema],
   },
   {
     toJSON: {
       virtuals: true,
-      getters: true
-    }
+      getters: true,
+    },
+    id: false
   }
 );
 
